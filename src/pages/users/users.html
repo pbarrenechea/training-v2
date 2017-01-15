@@ -1,0 +1,15 @@
+<ion-toolbar color="primary">
+  <ion-title>Atletas</ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only (click)="addUser()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content  padding>
+  <ion-list>
+    <ion-item *ngFor="let user of users | async" (click)="showOptions(user.$key, (user.name + ' ' + user.lastName) )">
+      {{user.name}} {{ user.lastName }}
+    </ion-item>
+  </ion-list>
+</ion-content>

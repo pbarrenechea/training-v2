@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ title }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content content-md statusbar-padding">
+  <form [formGroup]="sportsForm">
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input formControlName="title" type="text"></ion-input>
+    </ion-item>
+    <div padding>
+      <button ion-button color="primary" (click)="save()">Guardar</button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ title }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="content content-md statusbar-padding">
+  <form [formGroup]="usersForm">
+    <ion-item>
+      <ion-label color="primary" stacked>Nombre</ion-label>
+      <ion-input formControlName="name" type="text"  [(ngModel)]="currentUser.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Apellido</ion-label>
+      <ion-input formControlName="lastName" type="text"  [(ngModel)]="currentUser.lastName" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Fecha de Nacimiento</ion-label>
+      <ion-input formControlName="dob" type="date" [ngModel]="currentUser.dob | date:'yyyy-MM-dd'" (input)="currentUser.dob" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" [(ngModel)]="currentUser.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Fecha de inicio de actividad</ion-label>
+      <ion-input formControlName="doa" type="date"  [ngModel]="currentUser.doa | date:'yyyy-MM-dd'" (input)="currentUser.doa" ></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button color="primary" (click)="save()">Guardar</button>
+    </div>
+  </form>
+</ion-content>
