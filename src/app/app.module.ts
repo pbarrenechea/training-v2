@@ -8,6 +8,8 @@ import { UsersPage } from '../pages/users/users';
 import { ConfigPage } from '../pages/config/config';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireModule } from 'angularfire2';
+import { NgCalendarModule  } from 'ionic2-calendar';
+import {CalendarPage} from '../pages/calendar/calendar';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDg1QnNxTZ9JoKdSI67C4Su2PCKsvQ0t_U",
@@ -25,11 +27,13 @@ export const firebaseConfig = {
     SportsForm,
     UsersForm,
     UsersPage,
-    ConfigPage
+    ConfigPage,
+    CalendarPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    NgCalendarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,6 +42,7 @@ export const firebaseConfig = {
     SportsPage,
     UsersPage,
     ConfigPage,
+    CalendarPage,
     SportsForm,
     UsersForm
   ],

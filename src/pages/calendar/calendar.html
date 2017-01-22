@@ -1,0 +1,22 @@
+<ion-toolbar color="primary">
+    <ion-navbar>
+    <ion-title>Actividades para {{ currentUser.name }} {{ currentUser.lastName }}</ion-title>
+    </ion-navbar>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addActivity()">
+            <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-buttons>
+</ion-toolbar>
+<ion-content  padding>
+<ion-header>
+    <ion-title>{{ title }}</ion-title>
+</ion-header>
+<calendar [eventSource]="events"
+          [calendarMode]="mode"
+          [currentDate]="currentDate"
+          (onTitleChanged)="titleChanged($event)"
+          (onRangeChanged)="reloadSource(startTime, endTime)"
+          (onEventSelected)="onEventSelected($event)"
+          step="30"></calendar>
+</ion-content>

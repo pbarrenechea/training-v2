@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import {ActionSheetController, ModalController } from 'ionic-angular';
+import {ActionSheetController, ModalController, NavController } from 'ionic-angular';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import {UsersForm} from "./users.form";
+import {CalendarPage} from "./../calendar/calendar";
 
 @Component({
   selector: 'page-users',
@@ -12,7 +13,7 @@ export class UsersPage {
   users: FirebaseListObservable<any>;
 
   constructor(public actionSheetCtrl: ActionSheetController,
-              public modal: ModalController,
+              public modal: ModalController, public nav: NavController,
               af: AngularFire
     ) {
     this.users = af.database.list('/users', {
@@ -40,7 +41,9 @@ export class UsersPage {
         },
         {
           text: 'Cargar actividades',
-          handler: () => { true }
+          handler: () => {
+            this.nav.push(CalendarPage, {userId: userId});
+          }
         },
         {
           text: 'Cargar tests de velocidad',
